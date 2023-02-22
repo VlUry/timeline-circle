@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=PT+Sans:wght@400;700&display=swap');
+
+$background-color: rgba(244, 245, 249, 1);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  font-family: 'PT Sans', sans-serif;
+  background-color: $background-color;
+}
+
+.main-container {
+  height: 100vh;
+  height: 100svh;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: 5%;
+  border-right: solid 1px rgba(66, 86, 122, 0.1);
+  position: relative;
+  overflow: auto;
+
+  .upper-container {
+    height: calc(45% - 1px);
+    width: calc(50% - 1px);
+    border-left: solid 1px rgba(66, 86, 122, 0.1);
+    border-bottom: solid 1px rgba(66, 86, 122, 0.1);
+    position: relative;
+
+    .big-text-block {
+      position: absolute;
+      max-width: 50%;
+      padding-left: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 4px solid;
+      border-image: linear-gradient( rgba(56, 119, 238, 1), rgba(239, 93, 168, 1)) 1;
+      font-size: 2.7vw;
+      font-weight: 700;
+      color: rgba(66, 86, 122, 1);
+      line-height: 120%;
+    }
+    
+    .big-dates-block {
+      height: 40%;
+      font-weight: 700;
+      line-height: 160px;
+      letter-spacing: -2%;
+      font-size: 10.5vw;
+      position: absolute;
+      bottom: -20%;
+      left: -72.5%;
+      color: rgba(93, 95, 239, 1);
+      display: flex;
+
+      span:nth-child(2) {
+        color: rgba(239, 93, 168, 1);
+        margin-left: 10%;
+      }
+    }
+  }
+
+  .lower-container {
+    height: 55%;
+    width: calc(50% - 1px);
+    border-inline: solid 1px rgba(66, 86, 122, 0.1);
+    position: relative;
+
+    .circle-navigation {
+      z-index: 999;
+      margin-left: 80px;
+      position: absolute;
+      bottom: calc(36% + 50px); 
+      
+      .circle-navigation_up {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 18px;
+        color: rgba(66, 86, 122, 1);
+      }
+
+      .circle-navigation_bottom {
+        display: flex;
+
+        button {
+          all: unset;
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid rgba(66, 86, 122, 0.5);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        button:nth-child(2) {
+          margin-left: 20px;
+
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+      
+    .slider-container {
+      height: 36%;
+      width: 200%;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.circle-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-5%);
+}
+
+$circle-size: 530px;
+$timeline-button-size: 6px;
+$timeline-button-distance: $circle-size / 2;
+
+@mixin position($index, $count) {
+  $angle: 360deg / $count;
+  $rotate: $angle * ($index - 1);
+  transform: rotate($rotate) translate($timeline-button-distance + 0.5px) rotate(-$rotate);
+}
+
+.circle {
+  width: $circle-size;
+  height: $circle-size;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid rgba(66, 86, 122, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  $item-count: clamp(2, 6, 6);
+  .circle-button {
+    all: unset;
+    cursor: pointer;
+    width: $timeline-button-size;
+    height: $timeline-button-size;
+    border-radius: 50%;
+    background-color: rgba(66, 86, 122, 1);
+    position: absolute;
+
+    @for $i from 1 through $item-count {
+      &:nth-child(#{$i}) {
+        @include position($i, $item-count);
+      }
+    }
+
+    span {
+      display: none;
+    }
+
+    &.active {
+      width: 56px;
+      height: 56px;
+      background-color: $background-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: solid 1px rgba(48, 62, 88, 0.5);
+      color: rgba(66, 86, 122, 1);
+      line-height: 30px;
+      font-size: 20px;
+
+      span {
+        display: block;
+        position: absolute;
+        transform: translatex(calc(100% + 20px));
+        font-size: 20px;
+        color: rgba(66, 86, 122, 1);
+        font-weight: 700;
+      }
+    }
+  }
+}
