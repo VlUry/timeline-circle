@@ -1,4 +1,4 @@
-import Circle from "./components/Circle/Circle";
+import MainLayout from "./components/MainLayout";
 import Slider from "./components/Slider/Slider";
 
 function App() {
@@ -51,7 +51,7 @@ function App() {
             <Slider />
           </div>
         </div>
-        <Circle />
+        <MainLayout />
       </div>
     </>
   );
