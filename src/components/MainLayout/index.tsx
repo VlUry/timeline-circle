@@ -65,11 +65,15 @@ const MainLayout: FC = () => {
         <BigDates data={data.find((d) => d.active)} />
         <CircleNav
           onCircleNavClick={handleCircleNavClick}
-          activeButton={activeButton}
+          activeButtonIdx={activeButton + 1}
           buttonsLength={data.length}
         />
         <Slider />
-        <Circle onButtonClick={handleButtonClick} data={data} />
+        <Circle
+          onButtonClick={handleButtonClick}
+          data={data}
+          activeButtonIdx={activeButton + 1}
+        />
         <span className="info">{data.find((d) => d.active)?.info}</span>
       </div>
     </>

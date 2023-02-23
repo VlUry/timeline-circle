@@ -3,8 +3,8 @@ $background-color: rgba(244, 245, 249, 1);
 $circle-size: 530px;
 $timeline-button-size: 6px;
 $timeline-button-distance: $circle-size / 2;
+$black-blue-color: rgb(66, 86, 122);
 
-$item-count: 6;
 
 .circle {
   @media (min-width:1025px) {
@@ -16,15 +16,9 @@ $item-count: 6;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s;
+  transition: transform 0.7s;
   }
   display: none;
-}
-
-@mixin position($index) {
-  $angle: 360deg / $item-count;
-  $rotate: $angle * ($index - 1);
-  transform: rotate($rotate) translate($timeline-button-distance + 0.5px) rotate(-$rotate);
 }
 
 .circle-button {
@@ -33,43 +27,67 @@ $item-count: 6;
   width: $timeline-button-size;
   height: $timeline-button-size;
   border-radius: 50%;
-  background-color: rgba(66, 86, 122, 1);
-  color: rgba(66, 86, 122, 1);
-  position: absolute;
-  font-size: 0;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
+  background-color: $black-blue-color;
+  opacity: 0.4;
+  transition: 0.1s;
 
-  @for $i from 1 through $item-count {
-    &:nth-child(#{$i}) {
-      @include position($i);
-    }
-  }
-  
-  span {
-    opacity: 0;
-    position: absolute;
-    cursor: auto;
-  }
-  
   &.active {
-    width: 56px;
-    height: 56px;
-    background-color: $background-color;
-    border: solid 1px rgba(48, 62, 88, 0.5);
-    line-height: 30px;
-    font-size: 20px;
-    
-    span {
-      transform: translatex(calc(100% + 20px));
-      font-size: 20px;
-      font-weight: 700;
-      opacity: 1;
-    }
+    opacity: 1;
   }
+
+  @media (min-width: 1025px) {
+    transition: 0.3s;
+    opacity: 1;
+    color: $black-blue-color;
+    position: absolute;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    &:hover{
+      width: 56px;
+      height: 56px;
+      background-color: $background-color;
+      border: solid 1px rgba(48, 62, 88, 0.5);
+      line-height: 30px;
+      font-size: 20px;
+
+      span {
+        display: none;
+      }
+    }
+ 
+    span {
+      opacity: 0;
+      position: absolute;
+      cursor: auto;
+    }
+    
+    &.active:hover {
+      span {
+        display: inline;
+      }
+    }
+
+    &.active {
+      width: 56px;
+      height: 56px;
+      background-color: $background-color;
+      border: solid 1px rgba(48, 62, 88, 0.5);
+      line-height: 30px;
+      font-size: 20px;
+      
+      span {
+        transform: translatex(calc(100% + 20px));
+        font-size: 20px;
+        font-weight: 700;
+        opacity: 1;
+        transition: opacity 0.3s 0.3s;
+      }
+    }
+    }
 }
 
 .circle-pagination {
@@ -88,7 +106,7 @@ $item-count: 6;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: rgba(66, 86, 122);
+  background-color: $black-blue-color;
   opacity: 0.4;
 
   &.active {

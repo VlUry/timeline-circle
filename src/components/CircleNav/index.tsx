@@ -3,20 +3,20 @@ import { type FC } from "react";
 import "./CircleNav.style.scss";
 
 interface ICircleNav {
-  activeButton: number;
+  activeButtonIdx: number;
   buttonsLength: number;
   onCircleNavClick: (num: number) => void;
 }
 
 const CircleNav: FC<ICircleNav> = ({
   onCircleNavClick,
-  activeButton,
+  activeButtonIdx,
   buttonsLength,
 }) => {
   return (
     <div className="circle-navigation">
       <div className="circle-navigation_up">
-        <span>0{activeButton + 1}</span>/<span>0{buttonsLength}</span>
+        <span>0{activeButtonIdx}</span>/<span>0{buttonsLength}</span>
       </div>
       <div className="circle-navigation_bottom">
         <button
