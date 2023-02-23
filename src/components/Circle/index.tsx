@@ -10,18 +10,31 @@ interface ICircle {
 
 const Circle: FC<ICircle> = ({ onButtonClick, data }) => {
   return (
-    <div className="circle">
-      {data.map((button, idx) => (
-        <button
-          key={idx}
-          className={"circle-button" + (button.active ? " active" : "")}
-          onClick={() => onButtonClick(idx)}
-        >
-          {idx + 1}
-          <span>{button.info}</span>
-        </button>
-      ))}
-    </div>
+    <>
+      <div className="circle">
+        {data.map((button, idx) => (
+          <button
+            key={idx}
+            className={"circle-button" + (button.active ? " active" : "")}
+            onClick={() => onButtonClick(idx)}
+          >
+            {idx + 1}
+            <span>{button.info}</span>
+          </button>
+        ))}
+      </div>
+      <div className="circle-pagination">
+        {data.map((button, idx) => (
+          <button
+            key={idx}
+            className={
+              "circle-pagination-button" + (button.active ? " active" : "")
+            }
+            onClick={() => onButtonClick(idx)}
+          ></button>
+        ))}
+      </div>
+    </>
   );
 };
 

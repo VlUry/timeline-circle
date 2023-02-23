@@ -71,3 +71,27 @@ $item-count: 6;
     }
   }
 }
+
+.circle-pagination {
+  @media (min-width: 1025px) {
+    display: none;
+  }
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  gap: 10px;
+}
+
+.circle-pagination-button {
+  all: unset;
+  cursor: pointer;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(66, 86, 122);
+  opacity: 0.4;
+
+  &.active {
+    opacity: 1;
+  }
+}
