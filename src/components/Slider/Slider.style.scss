@@ -1,6 +1,9 @@
 .swiper {
+  @media (min-width:1025px) {
+    margin-inline: 40px;
+  }
+  
   height: 100%;
-  margin-inline: 40px;
 }
 
 .swiper-button-prev, .swiper-button-next {
@@ -9,6 +12,9 @@
   background: rgba(255, 255, 255, 1);
   border-radius: 50%;
   box-shadow: 0px 0px 15px 0px rgba(56, 119, 238, 0.1);
+  @media (max-width:1025px) {
+    display: none;
+  }
   
   &::after {
     content: url('../../assets/SliderArrow.svg');
@@ -37,25 +43,49 @@
 }
 
 .swiper-slide {
+  @media (min-width:1025px) {
+    padding-inline: 42px;
+    max-width: 360px;
+  }
+  @media (max-width:1025px) {
+    padding-right: 5px;
+    padding-left: 20px;
+  }
+  max-width: 200px;
   line-height: 30px;
-  max-width: 360px;
-  padding-inline: 42px;
   
   h1 {
+  @media (min-width:1025px) {
+    font-size: 25px;
+  }
+    font-size: 16px;
     margin-bottom: 15px;
     font-family: 'Bebas Neue', sans-serif;
     color: rgba(56, 119, 238, 1);
-    font-size: 25px;
   }
   
   p {
+  @media (min-width:1025px) {
     font-size: 20px;
+    line-height: 30px;
+    height: 100%;
+  }
+    font-size: 14px;
+    line-height: 20px;
+    height:80px;
     color: rgba(66, 86, 122, 1);
   }
 }
 
 .slider-container {
-  width: 100%;
+  @media (min-width:1025px) {
+    bottom: calc(100px - 10%);
+    width: 100%;
+  }
+  @media (max-width:1025px) {
+    height: 164px;
+    width: calc(100% + 40px);
+  }
   position: absolute;
-  bottom: -2.5%;
+  bottom: 15%;
 }

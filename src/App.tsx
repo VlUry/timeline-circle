@@ -5,14 +5,12 @@ import "./App.scss";
 function App() {
   return (
     <>
-      <div className="main-container">
-        <div className="upper-container">
-          <div className="big-text-block">Исторические даты</div>
-        </div>
-        <div className="upper-container"></div>
-        <div className="lower-container"></div>
-        <MainLayout />
+      <div className="background-container">
+        <div className="background-container_upper"></div>
+        <div className="background-container_upper"></div>
+        <div className="background-container_lower"></div>
       </div>
+      <MainLayout />
     </>
   );
 }

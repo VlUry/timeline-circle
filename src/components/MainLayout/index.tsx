@@ -54,12 +54,14 @@ const MainLayout: FC = () => {
     }
     if (activeButton + num >= data.length) {
       setActiveButton(0);
+      return;
     }
   };
 
   return (
     <>
       <div className="main-layout-container">
+        <div className="big-text-block">Исторические даты</div>
         <BigDates data={data.find((d) => d.active)} />
         <CircleNav
           onCircleNavClick={handleCircleNavClick}
