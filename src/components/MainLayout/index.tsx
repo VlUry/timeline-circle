@@ -1,4 +1,5 @@
 import { useEffect, useState, type FC } from "react";
+import BigDates from "../BigDates";
 import Circle from "../Circle";
 import CircleNav from "../CircleNav";
 import Slider from "../Slider";
@@ -16,7 +17,7 @@ const MainLayout: FC = () => {
   const [activeButton, setActiveButton] = useState(5);
 
   const [data, setData] = useState<DataItem[]>([
-    { info: "", active: false, from: 2015, to: 2022 },
+    { info: "", active: false, from: 2000, to: 2022 },
     { info: "", active: false, from: 2015, to: 2022 },
     { info: "", active: false, from: 2015, to: 2022 },
     { info: "", active: false, from: 2015, to: 2022 },
@@ -44,10 +45,7 @@ const MainLayout: FC = () => {
   return (
     <>
       <div className="main-layout-container">
-        <div className="big-dates-block">
-          <span>{data.find((d) => d.active)?.from}</span>
-          <span>{data.find((d) => d.active)?.to}</span>
-        </div>
+        <BigDates data={data.find((d) => d.active)} />
         <CircleNav />
         <Slider />
         <Circle onButtonClick={handleButtonClick} data={data} />

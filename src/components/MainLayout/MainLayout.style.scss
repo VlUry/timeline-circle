@@ -7,27 +7,3 @@
   justify-content: center;
   transform: translateY(-5%);
 }
-
-.big-dates-block {
-  font-weight: 700;
-  line-height: 160px;
-  letter-spacing: -2%;
-  font-size: 10.5vw;
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -25%);
-  color: rgba(93, 95, 239, 1);
-  display: flex;
-  gap: 4vw;
-
-  span {
-    -webkit-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none; 
-  }
-
-  span:nth-child(2) {
-    color: rgba(239, 93, 168, 1);
-  }
-}
