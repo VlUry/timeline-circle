@@ -2,14 +2,27 @@ import { type FC } from "react";
 
 import "./CircleNav.style.scss";
 
-const CircleNav: FC = () => {
+interface ICircleNav {
+  activeButton: number;
+  buttonsLength: number;
+  onCircleNavClick: (num: number) => void;
+}
+
+const CircleNav: FC<ICircleNav> = ({
+  onCircleNavClick,
+  activeButton,
+  buttonsLength,
+}) => {
   return (
     <div className="circle-navigation">
       <div className="circle-navigation_up">
-        <span>06</span>/<span>06</span>
+        <span>0{activeButton + 1}</span>/<span>0{buttonsLength}</span>
       </div>
       <div className="circle-navigation_bottom">
-        <button className="circle-navigation-button">
+        <button
+          className="circle-navigation-button"
+          onClick={() => onCircleNavClick(-1)}
+        >
           <svg
             width="10"
             height="14"
@@ -24,7 +37,10 @@ const CircleNav: FC = () => {
             />
           </svg>
         </button>
-        <button className="circle-navigation-button">
+        <button
+          className="circle-navigation-button"
+          onClick={() => onCircleNavClick(1)}
+        >
           <svg
             width="10"
             height="14"

@@ -42,11 +42,30 @@ const MainLayout: FC = () => {
   const handleButtonClick = (idx: number) => {
     setActiveButton(idx);
   };
+
+  const handleCircleNavClick = (num: number) => {
+    if (activeButton + num >= 0 && activeButton + num < data.length) {
+      setActiveButton((prev) => prev + num);
+      return;
+    }
+    if (activeButton + num < 0) {
+      setActiveButton(data.length - 1);
+      return;
+    }
+    if (activeButton + num >= data.length) {
+      setActiveButton(0);
+    }
+  };
+
   return (
     <>
       <div className="main-layout-container">
         <BigDates data={data.find((d) => d.active)} />
-        <CircleNav />
+        <CircleNav
+          onCircleNavClick={handleCircleNavClick}
+          activeButton={activeButton}
+          buttonsLength={data.length}
+        />
         <Slider />
         <Circle onButtonClick={handleButtonClick} data={data} />
       </div>
