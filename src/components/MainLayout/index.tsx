@@ -70,6 +70,7 @@ const MainLayout: FC = () => {
         />
         <Slider />
         <Circle onButtonClick={handleButtonClick} data={data} />
+        <span className="info">{data.find((d) => d.active)?.info}</span>
       </div>
     </>
   );

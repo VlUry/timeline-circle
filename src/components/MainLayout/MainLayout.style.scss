@@ -36,3 +36,16 @@
   font-size: 20px;
   line-height: 24px;
 }
+
+.info {
+  @media (min-width: 1025px) {
+    display: none;
+  }
+  left: 0;
+  top: 40%;
+  font-size: 16px;
+  position: absolute;
+  line-height: 30px;
+  font-weight: 700;
+  color: rgba(66, 86, 122, 1);
+}
