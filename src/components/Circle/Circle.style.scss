@@ -25,10 +25,12 @@ $item-count: 6;
   display: flex;
   align-items: center;
   justify-content: center;
+  // transform: rotate(360deg / $item-count * 1);
+  transition: transform 0.5s;
 }
 
-@mixin position($index, $count) {
-  $angle: 360deg / $count;
+@mixin position($index) {
+  $angle: 360deg / $item-count;
   $rotate: $angle * ($index - 1);
   transform: rotate($rotate) translate($timeline-button-distance + 0.5px) rotate(-$rotate);
 }
@@ -42,15 +44,17 @@ $item-count: 6;
   background-color: rgba(66, 86, 122, 1);
   position: absolute;
   font-size: 0;
+  transition: 0.3s;
 
   @for $i from 1 through $item-count {
     &:nth-child(#{$i}) {
-      @include position($i, $item-count);
+      @include position($i);
     }
   }
 
   span {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
   }
 
   &.active {
@@ -66,12 +70,36 @@ $item-count: 6;
     font-size: 20px;
 
     span {
-      display: block;
       position: absolute;
       transform: translatex(calc(100% + 20px));
       font-size: 20px;
       color: rgba(66, 86, 122, 1);
       font-weight: 700;
+      opacity: 1;
     }
+  }
+}
+
+.big-dates-block {
+  font-weight: 700;
+  line-height: 160px;
+  letter-spacing: -2%;
+  font-size: 10.5vw;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  color: rgba(93, 95, 239, 1);
+  display: flex;
+  gap: 65px;
+
+  span {
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+  }
+
+  span:nth-child(2) {
+    color: rgba(239, 93, 168, 1);
   }
 }

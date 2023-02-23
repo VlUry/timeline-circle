@@ -8,12 +8,7 @@ function App() {
         <div className="upper-container">
           <div className="big-text-block">Исторические даты</div>
         </div>
-        <div className="upper-container">
-          <div className="big-dates-block">
-            <span>2015</span>
-            <span>2022</span>
-          </div>
-        </div>
+        <div className="upper-container"></div>
         <div className="lower-container">
           <div className="circle-navigation">
             <div className="circle-navigation_up">

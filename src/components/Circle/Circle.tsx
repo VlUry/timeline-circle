@@ -11,7 +11,7 @@ const Circle: FC = () => {
     { info: "Наука3", active: false },
     { info: "Наука4", active: false },
     { info: "Наука5", active: false },
-    { info: "Наука", active: false },
+    { info: "Наука", active: false, from: 2015, to: 2022 },
   ]);
 
   useEffect(() => {
@@ -34,6 +34,10 @@ const Circle: FC = () => {
 
   return (
     <div className="circle-container">
+      <div className="big-dates-block">
+        <span>{data.find((d) => d.active)?.from}</span>
+        <span>{data.find((d) => d.active)?.to}</span>
+      </div>
       <div className="circle">
         {data.map((button, idx) => (
           <button
