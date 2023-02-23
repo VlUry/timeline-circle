@@ -1,4 +1,4 @@
-.circle-container {
+.main-layout-container {
   height: 100%;
   width: 100%;
   position: absolute;
@@ -19,7 +19,7 @@
   transform: translate(-50%, -25%);
   color: rgba(93, 95, 239, 1);
   display: flex;
-  gap: 65px;
+  gap: 4vw;
 
   span {
     -webkit-user-select: none; 

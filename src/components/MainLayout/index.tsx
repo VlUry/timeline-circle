@@ -1,5 +1,7 @@
 import { useEffect, useState, type FC } from "react";
 import Circle from "../Circle";
+import CircleNav from "../CircleNav";
+import Slider from "../Slider";
 
 import "./MainLayout.style.scss";
 
@@ -41,11 +43,13 @@ const MainLayout: FC = () => {
   };
   return (
     <>
-      <div className="circle-container">
+      <div className="main-layout-container">
         <div className="big-dates-block">
           <span>{data.find((d) => d.active)?.from}</span>
           <span>{data.find((d) => d.active)?.to}</span>
         </div>
+        <CircleNav />
+        <Slider />
         <Circle onButtonClick={handleButtonClick} data={data} />
       </div>
     </>
