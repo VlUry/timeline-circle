@@ -1,3 +1,4 @@
+import Circle from "./components/Circle/Circle";
 import Slider from "./components/Slider/Slider";
 
 function App() {
@@ -55,18 +56,7 @@ function App() {
             <Slider />
           </div>
         </div>
-        <div className="circle-container">
-          <div className="circle">
-            <button className="circle-button"></button>
-            <button className="circle-button"></button>
-            <button className="circle-button"></button>
-            <button className="circle-button"></button>
-            <button className="circle-button"></button>
-            <button className="circle-button active">
-              6 <span>Наука</span>
-            </button>
-          </div>
-        </div>
+        <Circle />
       </div>
     </>
   );

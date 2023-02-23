@@ -13,7 +13,7 @@ const Slider: FC = () => {
       navigation={true}
       slidesPerView={"auto"}
       freeMode={true}
-      spaceBetween={80}
+      spaceBetween={0}
       modules={[FreeMode, Navigation]}
     >
       <SwiperSlide>

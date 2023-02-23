@@ -74,7 +74,7 @@ $background-color: rgba(244, 245, 249, 1);
       z-index: 999;
       margin-left: 80px;
       position: absolute;
-      bottom: calc(36% + 50px); 
+      bottom: calc(40% + 50px); 
       
       .circle-navigation_up {
         margin-bottom: 20px;
@@ -109,7 +109,7 @@ $background-color: rgba(244, 245, 249, 1);
     }
       
     .slider-container {
-      height: 36%;
+      height: 40%;
       width: 200%;
       position: absolute;
       bottom: 0;
@@ -117,76 +117,3 @@ $background-color: rgba(244, 245, 249, 1);
   }
 }
 
-.circle-container {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-5%);
-}
-
-$circle-size: 530px;
-$timeline-button-size: 6px;
-$timeline-button-distance: $circle-size / 2;
-
-@mixin position($index, $count) {
-  $angle: 360deg / $count;
-  $rotate: $angle * ($index - 1);
-  transform: rotate($rotate) translate($timeline-button-distance + 0.5px) rotate(-$rotate);
-}
-
-.circle {
-  width: $circle-size;
-  height: $circle-size;
-  border-radius: 50%;
-  background: none;
-  border: 1px solid rgba(66, 86, 122, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  $item-count: clamp(2, 6, 6);
-  .circle-button {
-    all: unset;
-    cursor: pointer;
-    width: $timeline-button-size;
-    height: $timeline-button-size;
-    border-radius: 50%;
-    background-color: rgba(66, 86, 122, 1);
-    position: absolute;
-
-    @for $i from 1 through $item-count {
-      &:nth-child(#{$i}) {
-        @include position($i, $item-count);
-      }
-    }
-
-    span {
-      display: none;
-    }
-
-    &.active {
-      width: 56px;
-      height: 56px;
-      background-color: $background-color;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: solid 1px rgba(48, 62, 88, 0.5);
-      color: rgba(66, 86, 122, 1);
-      line-height: 30px;
-      font-size: 20px;
-
-      span {
-        display: block;
-        position: absolute;
-        transform: translatex(calc(100% + 20px));
-        font-size: 20px;
-        color: rgba(66, 86, 122, 1);
-        font-weight: 700;
-      }
-    }
-  }
-}

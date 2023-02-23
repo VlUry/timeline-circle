@@ -1,6 +1,6 @@
 .swiper {
   height: 100%;
-  margin-inline: 80px;
+  margin-inline: 40px;
 }
 
 .swiper-button-prev, .swiper-button-next {
@@ -21,7 +21,7 @@
 }
 
 .swiper-button-prev {
-  transform: translateX(-5px);
+  transform: translateX(-10px);
 
   &::after {
     transform: rotate(180deg) translateY(-23%) translatex(23%);
@@ -29,7 +29,7 @@
 }
 
 .swiper-button-next {
-  transform: translateX(5px);
+  transform: translateX(10px);
 
   &::after {
     transform: translateY(-23%) translatex(23%);
@@ -38,7 +38,8 @@
 
 .swiper-slide {
   line-height: 30px;
-  max-width: 430px;
+  max-width: 360px;
+  padding-inline: 42px;
   
   h1 {
     margin-bottom: 15px;
