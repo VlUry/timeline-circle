@@ -1,8 +1,9 @@
 import { useEffect, useState, type FC } from "react";
+import initData from "../../initData";
 import BigDates from "../BigDates";
 import Circle from "../Circle";
 import CircleNav from "../CircleNav";
-import Slider from "../Slider";
+import Slider, { type SliderItem } from "../Slider";
 
 import "./MainLayout.style.scss";
 
@@ -11,19 +12,13 @@ export interface DataItem {
   active: boolean;
   from: number;
   to: number;
+  slides?: SliderItem[];
 }
 
 const MainLayout: FC = () => {
   const [activeButton, setActiveButton] = useState(5);
 
-  const [data, setData] = useState<DataItem[]>([
-    { info: "", active: false, from: 2000, to: 2022 },
-    { info: "", active: false, from: 2015, to: 2022 },
-    { info: "", active: false, from: 2015, to: 2022 },
-    { info: "", active: false, from: 2015, to: 2022 },
-    { info: "", active: false, from: 2015, to: 2022 },
-    { info: "Наука", active: false, from: 2015, to: 2022 },
-  ]);
+  const [data, setData] = useState<DataItem[]>(initData);
 
   useEffect(() => {
     const newData = data.map((button, idx) => {
@@ -68,7 +63,7 @@ const MainLayout: FC = () => {
           activeButtonIdx={activeButton + 1}
           buttonsLength={data.length}
         />
-        <Slider />
+        <Slider data={data.find((d) => d.active)?.slides} />
         <Circle
           onButtonClick={handleButtonClick}
           data={data}

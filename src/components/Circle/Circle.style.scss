@@ -30,13 +30,14 @@ $black-blue-color: rgb(66, 86, 122);
   background-color: $black-blue-color;
   opacity: 0.4;
   transition: 0.1s;
-
+  
   &.active {
     opacity: 1;
   }
-
+  
   @media (min-width: 1025px) {
     transition: 0.3s;
+    transition-timing-function: ease;
     opacity: 1;
     color: $black-blue-color;
     position: absolute;
@@ -55,7 +56,7 @@ $black-blue-color: rgb(66, 86, 122);
       font-size: 20px;
 
       span {
-        display: none;
+        cursor: pointer;
       }
     }
  
@@ -67,7 +68,7 @@ $black-blue-color: rgb(66, 86, 122);
     
     &.active:hover {
       span {
-        display: inline;
+        cursor: auto;
       }
     }
 
@@ -78,13 +79,13 @@ $black-blue-color: rgb(66, 86, 122);
       border: solid 1px rgba(48, 62, 88, 0.5);
       line-height: 30px;
       font-size: 20px;
-      
+
       span {
         transform: translatex(calc(100% + 20px));
         font-size: 20px;
         font-weight: 700;
         opacity: 1;
-        transition: opacity 0.3s 0.3s;
+        transition: opacity 0.3s 0.6s;
       }
     }
     }

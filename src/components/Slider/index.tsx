@@ -7,7 +7,16 @@ import "swiper/scss/navigation";
 
 import "./Slider.style.scss";
 
-const Slider: FC = () => {
+export interface SliderItem {
+  header: number | string;
+  p: string;
+}
+
+interface ISlider {
+  data: SliderItem[] | undefined;
+}
+
+const Slider: FC<ISlider> = ({ data }) => {
   return (
     <div className="slider-container">
       <Swiper
@@ -17,7 +26,13 @@ const Slider: FC = () => {
         spaceBetween={0}
         modules={[FreeMode, Navigation]}
       >
-        <SwiperSlide>
+        {data?.map((slide, idx) => (
+          <SwiperSlide key={idx}>
+            <h1>{slide.header}</h1>
+            <p>{slide.p}</p>
+          </SwiperSlide>
+        ))}
+        {/* <SwiperSlide>
           <h1>2015</h1>
           <p>
             13 сентября — частное солнечное затмение, видимое в Южной Африке и
@@ -58,7 +73,7 @@ const Slider: FC = () => {
             Компания Tesla официально представила первый в мире электрический
             грузовик Tesla Semi
           </p>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   );
