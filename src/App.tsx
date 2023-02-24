@@ -5,12 +5,14 @@ import "./App.scss";
 function App() {
   return (
     <>
-      <div className="background-container">
-        <div className="background-container_upper"></div>
-        <div className="background-container_upper"></div>
-        <div className="background-container_lower"></div>
+      <div className="container">
+        <div className="background-container">
+          <div className="background-container_upper"></div>
+          <div className="background-container_upper"></div>
+          <div className="background-container_lower"></div>
+        </div>
+        <MainLayout />
       </div>
-      <MainLayout />
     </>
   );
 }
