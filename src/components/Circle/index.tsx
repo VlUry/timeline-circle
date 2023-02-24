@@ -16,7 +16,9 @@ const Circle: FC<ICircle> = ({ onButtonClick, data, activeButtonIdx }) => {
     <>
       <div
         className="circle"
-        style={{ transform: `rotate(-${activeButtonIdx * angle}deg)` }}
+        style={{
+          transform: `rotate(-${activeButtonIdx * angle - (angle - 60)}deg)`,
+        }}
       >
         {data.map((button, idx) => (
           <button
@@ -27,7 +29,7 @@ const Circle: FC<ICircle> = ({ onButtonClick, data, activeButtonIdx }) => {
               transform: `rotate(${
                 angle * idx
               }deg) translate(${265.5}px) rotate(${
-                angle * (activeButtonIdx - idx)
+                angle * (activeButtonIdx - idx) - (angle - 60)
               }deg)`,
             }}
           >

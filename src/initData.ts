@@ -1,3 +1,5 @@
+// Для превью
+
 import { DataItem } from "./components/MainLayout";
 
 const initData: DataItem[] = [
