@@ -16,39 +16,43 @@ export interface DataItem {
 }
 
 const MainLayout: FC = () => {
-  const [activeButton, setActiveButton] = useState(5);
-
   const [data, setData] = useState<DataItem[]>(initData);
+  const [activeButtonIdx, setActiveButtonIdx] = useState(0);
+  const [activeData, setActiveData] = useState<DataItem>();
+
+  useEffect(() => {
+    setActiveData(data.find((d) => d.active));
+  }, [data]);
 
   useEffect(() => {
     const newData = data.map((button, idx) => {
       if (button.active) {
         return { ...button, active: false };
       }
-      if (idx === activeButton) {
+      if (idx === activeButtonIdx) {
         return { ...button, active: true };
       }
       return button;
     });
 
     setData(newData);
-  }, [activeButton]);
+  }, [activeButtonIdx]);
 
   const handleButtonClick = (idx: number) => {
-    setActiveButton(idx);
+    setActiveButtonIdx(idx);
   };
 
   const handleCircleNavClick = (num: number) => {
-    if (activeButton + num >= 0 && activeButton + num < data.length) {
-      setActiveButton((prev) => prev + num);
+    if (activeButtonIdx + num >= 0 && activeButtonIdx + num < data.length) {
+      setActiveButtonIdx((prev) => prev + num);
       return;
     }
-    if (activeButton + num < 0) {
-      setActiveButton(data.length - 1);
+    if (activeButtonIdx + num < 0) {
+      setActiveButtonIdx(data.length - 1);
       return;
     }
-    if (activeButton + num >= data.length) {
-      setActiveButton(0);
+    if (activeButtonIdx + num >= data.length) {
+      setActiveButtonIdx(0);
       return;
     }
   };
@@ -57,19 +61,19 @@ const MainLayout: FC = () => {
     <>
       <div className="main-layout-container">
         <div className="big-text-block">Исторические даты</div>
-        <BigDates data={data.find((d) => d.active)} />
+        {activeData && <BigDates data={activeData} />}
         <CircleNav
           onCircleNavClick={handleCircleNavClick}
-          activeButtonIdx={activeButton + 1}
+          activeButtonIdx={activeButtonIdx + 1}
           buttonsLength={data.length}
         />
-        <Slider data={data.find((d) => d.active)?.slides} />
+        {activeData && <Slider data={activeData.slides} />}
         <Circle
           onButtonClick={handleButtonClick}
           data={data}
-          activeButtonIdx={activeButton + 1}
+          activeButtonIdx={activeButtonIdx + 1}
         />
-        <span className="info">{data.find((d) => d.active)?.info}</span>
+        {activeData && <span className="info">{activeData.info}</span>}
       </div>
     </>
   );

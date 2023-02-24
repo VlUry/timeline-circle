@@ -1,7 +1,7 @@
 import { DataItem } from "./components/MainLayout";
 
 const initData: DataItem[] = [
-  { info: "Политика", active: false, from: 2000, to: 2005, slides: [
+  { info: "Политика", active: false, from: 1990, to: 1995, slides: [
     {
       header: 2015,
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
@@ -19,7 +19,7 @@ const initData: DataItem[] = [
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
     },
   ], },
-  { info: "Еда", active: false, from: 2006, to: 2008, slides: [
+  { info: "Еда", active: false, from: 1996, to: 2001, slides: [
     {
       header: 2015,
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
@@ -37,7 +37,7 @@ const initData: DataItem[] = [
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
     },
   ], },
-  { info: "Спорт", active: false, from: 2009, to: 2010,slides: [
+  { info: "Спорт", active: false, from: 2002, to: 2007, slides: [
     {
       header: 2015,
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
@@ -55,8 +55,7 @@ const initData: DataItem[] = [
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
     },
   ], },
-  { info: "Литература", active: false, from: 2011, to: 2013,
-  slides: [
+  { info: "Литература", active: false, from: 2008, to: 2013, slides: [
     {
       header: 2015,
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
@@ -74,8 +73,7 @@ const initData: DataItem[] = [
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
     },
   ], },
-  { info: "Кино", active: false, from: 2013, to: 2014,
-  slides: [
+  { info: "Кино", active: false, from: 2014, to: 2019, slides: [
     {
       header: 2015,
       p: "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
@@ -96,8 +94,8 @@ const initData: DataItem[] = [
   {
     info: "Наука",
     active: false,
-    from: 2015,
-    to: 2022,
+    from: 2020,
+    to: 2023,
     slides: [
       {
         header: 2015,

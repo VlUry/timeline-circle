@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import { useEffect, type FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, FreeMode } from "swiper";
 
@@ -6,6 +6,7 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 
 import "./Slider.style.scss";
+import gsap from "gsap";
 
 export interface SliderItem {
   header: number | string;
@@ -17,6 +18,14 @@ interface ISlider {
 }
 
 const Slider: FC<ISlider> = ({ data }) => {
+  useEffect(() => {
+    gsap.fromTo(
+      ".swiper-wrapper",
+      { opacity: 0, y: 10 },
+      { opacity: 1, duration: 0.4, delay: 0.4, y: 0 }
+    );
+  }, [data]);
+
   return (
     <div className="slider-container">
       <Swiper
@@ -32,48 +41,6 @@ const Slider: FC<ISlider> = ({ data }) => {
             <p>{slide.p}</p>
           </SwiperSlide>
         ))}
-        {/* <SwiperSlide>
-          <h1>2015</h1>
-          <p>
-            13 сентября — частное солнечное затмение, видимое в Южной Африке и
-            части Антарктиды
-          </p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1>2016</h1>
-          <p>
-            Телескоп «Хаббл» обнаружил самую удалённую из всех обнаруженных
-            галактик, получившую обозначение GN-z11
-          </p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1>2017</h1>
-          <p>
-            Компания Tesla официально представила первый в мире электрический
-            грузовик Tesla Semi
-          </p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1>2015</h1>
-          <p>
-            13 сентября — частное солнечное затмение, видимое в Южной Африке и
-            части Антарктиды
-          </p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1>2016</h1>
-          <p>
-            Телескоп «Хаббл» обнаружил самую удалённую из всех обнаруженных
-            галактик, получившую обозначение GN-z11
-          </p>
-        </SwiperSlide>
-        <SwiperSlide>
-          <h1>2017</h1>
-          <p>
-            Компания Tesla официально представила первый в мире электрический
-            грузовик Tesla Semi
-          </p>
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );
