@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/timeline-circle/static/css/main.d6609b84.css",
+    "main.js": "/timeline-circle/static/js/main.77a28b05.js",
+    "index.html": "/timeline-circle/index.html",
+    "static/media/SliderArrow.svg": "/timeline-circle/static/media/SliderArrow.42a00e1042e62dbb933e.svg",
+    "main.d6609b84.css.map": "/timeline-circle/static/css/main.d6609b84.css.map",
+    "main.77a28b05.js.map": "/timeline-circle/static/js/main.77a28b05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6609b84.css",
+    "static/js/main.77a28b05.js"
+  ]
+}
